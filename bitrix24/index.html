@@ -151,10 +151,27 @@
         }
 
         body.dark-theme .logo {
-            background: linear-gradient(135deg, #00C2A8 0%, #00E5C0 100%);
+            background: #00C2A8;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #00C2A8;
         }
 
         .header-right {
@@ -163,24 +180,22 @@
             gap: 20px;
         }
 
-        .header-phone {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-primary);
+        .telegram-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0088cc 0%, #00a0dc 100%);
+            color: white;
             text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        body.dark-theme .header-phone {
-            padding: 12px 24px;
-            background: rgba(0, 194, 168, 0.1);
-            border: 1px solid rgba(0, 194, 168, 0.3);
             border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
         }
 
-        body.dark-theme .header-phone:hover {
-            background: rgba(0, 194, 168, 0.2);
-            border-color: #00C2A8;
+        .telegram-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 136, 204, 0.4);
         }
 
         /* Theme Switcher */
@@ -222,26 +237,151 @@
 
         /* Hero Section */
         .hero {
-            padding: 80px 0;
+            padding: 0;
+            height: 700px;
             background: var(--gradient-hero);
             transition: background 0.5s ease;
+            position: relative;
+            overflow: visible;
         }
 
-        .hero-content {
+        .hero .container {
+            padding-top: 80px;
+            padding-bottom: 80px;
+            height: 100%;
+            position: relative;
+            overflow: visible;
+        }
+
+                .hero-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 400px;
             gap: 60px;
+            width: 100%;
+            height: 100%;
+            align-items: stretch;
+            position: relative;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            grid-column: 1 / 4;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }        .stat-item {
+            padding: 16px 20px 12px 20px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+                .hero-stats {
+            position: absolute;
+            right: 0;
+            top: -80px;
+            width: 450px;
+            height: 700px;
+            display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 50px 30px 60px 30px;
+            background: var(--bg-tertiary);
+            border-radius: 0;
+            z-index: 10;
+            margin-right: -40px;
+        }
+        
+        .hero-stats h3 {
+            grid-column: 1 / -1;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .hero-stat-item {
+            width: 180px;
+            text-align: left;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.5);
+            min-height: 60px;
+            border-radius: 12px;
+        }
+        
+        body.dark-theme .hero-stat-item {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+
+        .hero-main-content {
+            flex: 1;
+        }
+
+        .hero-bottom-content {
+            margin-top: auto;
+            display: flex;
             align-items: center;
+            gap: 30px;
         }
 
         .hero-text h1 {
-            font-size: 52px;
+            font-size: 44px;
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 24px;
             color: var(--text-primary);
             transition: all 0.5s ease;
         }
+
+        .hero-subheading {
+            font-size: 32px;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            font-weight: 700;
+            transition: color 0.5s ease;
+        }
+        .hero-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px 0;
+        }
+
+        .hero-list li {
+            font-size: 20px;
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: 12px 0 12px 32px;
+            position: relative;
+            line-height: 1.5;
+            transition: color 0.5s ease;
+        }
+
+        .hero-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 22px;
+        }
+
 
         body.dark-theme .hero-text h1 {
             background: linear-gradient(135deg, #ffffff 0%, #00E5C0 100%);
@@ -255,8 +395,9 @@
         }
 
         .hero-text .subtitle {
-            font-size: 22px;
-            margin-bottom: 32px;
+            font-size: 16px;
+            margin-bottom: 0;
+            max-width: 400px;
             color: var(--text-secondary);
             line-height: 1.5;
             transition: color 0.5s ease;
@@ -288,8 +429,8 @@
         .cta-button {
             display: inline-block;
             padding: 20px 50px;
-            background: linear-gradient(135deg, #00C2A8 0%, #00E5C0 100%);
-            color: #1A1F25;
+            background: #00C2A8;
+            color: white;
             font-size: 18px;
             font-weight: 700;
             border: none;
@@ -335,7 +476,7 @@
         .section-title {
             font-size: 42px;
             font-weight: 700;
-            text-align: center;
+            text-align: left;
             margin-bottom: 60px;
             color: var(--text-primary);
             transition: all 0.5s ease;
@@ -346,6 +487,46 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+        }
+
+        /* Animated Text Styles */
+        .animated-text {
+            display: inline-block;
+            background: #00C2A8;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: underline;
+            text-decoration-color: #00C2A8;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 5px;
+            min-width: 350px;
+            text-align: left;
+            animation: slideUp 0.5s ease;
+        }
+
+        .animated-text-hero {
+            display: block;
+            margin-top: 8px;
+            color: #00C2A8;
+            text-decoration: underline;
+            text-decoration-color: #00C2A8;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 5px;
+            min-width: 280px;
+            text-align: left;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Features Section */
@@ -363,10 +544,10 @@
 
         .feature-card {
             padding: 40px 30px;
-            background: var(--card-bg-secondary);
+            background: var(--bg-tertiary);
             border-radius: 12px;
             transition: all 0.4s ease;
-            border: 2px solid transparent;
+            border: none;
         }
 
         body.dark-theme .feature-card {
@@ -376,13 +557,13 @@
         .feature-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 30px rgba(0, 194, 168, 0.15);
-            border-color: #00C2A8;
+            
         }
 
         .feature-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #00C2A8 0%, #00E5C0 100%);
+            background: #00C2A8;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -460,14 +641,14 @@
 
         .service-card {
             padding: 40px;
-            background: var(--card-bg-secondary);
+            background: var(--bg-tertiary);
             border-radius: 12px;
-            border: 2px solid var(--border-color);
+            border: none;
             transition: all 0.4s ease;
         }
 
         .service-card:hover {
-            border-color: #00C2A8;
+            
             box-shadow: 0 8px 30px rgba(0, 194, 168, 0.15);
             transform: translateY(-5px);
         }
@@ -482,7 +663,7 @@
         .service-card .price {
             font-size: 32px;
             font-weight: 700;
-            background: linear-gradient(135deg, #00C2A8 0%, #00E5C0 100%);
+            background: #00C2A8;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -519,7 +700,7 @@
 
         .cases-filter {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 15px;
             margin-bottom: 50px;
             flex-wrap: wrap;
@@ -527,8 +708,8 @@
 
         .filter-btn {
             padding: 12px 30px;
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
+            background: var(--bg-tertiary);
+            border: none;
             border-radius: 8px;
             font-size: 16px;
             font-weight: 600;
@@ -537,9 +718,34 @@
             color: var(--text-secondary);
         }
 
+        .filter-count {
+            display: none;
+        }
+
+        .filter-btn.active .filter-count {
+            display: none;
+        }
+
+        body.dark-theme .filter-count {
+            display: none;
+        }
+
+        body.dark-theme .filter-btn.active .filter-count {
+            display: none;
+        }
+
+        .cases-progress {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            transition: color 0.5s ease;
+        }
+
         .filter-btn:hover,
         .filter-btn.active {
-            background: linear-gradient(135deg, #00C2A8 0%, #00E5C0 100%);
+            background: #00C2A8;
             border-color: transparent;
             color: #1A1F25;
             transform: translateY(-2px);
@@ -552,24 +758,51 @@
             gap: 40px;
         }
 
+        .load-more-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .load-more-btn {
+            padding: 18px 50px;
+            background: #00C2A8;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(0, 194, 168, 0.4);
+        }
+
+        .load-more-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 194, 168, 0.5);
+        }
+
+        .load-more-btn.hidden {
+            display: none;
+        }
+
         .case-item {
-            background: var(--card-bg);
+            background: var(--bg-tertiary);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
             transition: all 0.4s ease;
-            border: 1px solid var(--border-color);
+            border: none;
         }
 
         .case-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
-            border-color: #00C2A8;
+            
         }
 
         .case-header {
             padding: 30px;
-            background: linear-gradient(135deg, #00C2A8 0%, #00a890 100%);
+            background: #00C2A8;
             color: #ffffff;
         }
 
@@ -598,6 +831,30 @@
             font-size: 28px;
             margin-bottom: 12px;
             color: #ffffff;
+        }
+
+        .case-header h3 a {
+            color: inherit;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .case-header h3 a:hover {
+            opacity: 0.85;
+        }
+
+        .external-link-icon {
+            font-size: 20px;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .case-header h3 a:hover .external-link-icon {
+            opacity: 1;
+            transform: translate(2px, -2px);
         }
 
         .case-header p {
@@ -644,10 +901,40 @@
         .metric {
             text-align: center;
             padding: 20px;
-            background: var(--card-bg-secondary);
-            border-radius: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
             transition: all 0.4s ease;
-            border: 1px solid transparent;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .metric::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #00C2A8;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .metric.metric-positive::before {
+            background: #10b981;
+        }
+
+        .metric.metric-time::before {
+            background: #f59e0b;
+        }
+
+        .metric:hover::before {
+            opacity: 1;
         }
 
         body.dark-theme .metric {
@@ -657,23 +944,60 @@
 
         .metric:hover {
             background: var(--bg-tertiary);
-            border-color: #00C2A8;
+            
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 194, 168, 0.15);
         }
 
         .metric-value {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            background: linear-gradient(135deg, #00C2A8 0%, #00E5C0 100%);
+            margin-bottom: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .metric-value-number {
+            background: #00C2A8;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 8px;
+        }
+
+        .metric-positive .metric-value-number {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-time .metric-value-number {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-value-long .metric-value-number {
+            font-size: 22px;
+        }
+
+        .metric-icon {
+            font-size: 24px;
+            filter: grayscale(0);
         }
 
         .metric-label {
             font-size: 14px;
             color: var(--text-secondary);
             transition: color 0.5s ease;
+            line-height: 1.4;
+            text-align: center;
+            width: 100%;
         }
 
         /* Process Section */
@@ -692,11 +1016,11 @@
         .process-step {
             text-align: center;
             padding: 30px 20px;
-            background: var(--card-bg-secondary);
+            background: var(--bg-tertiary);
             border-radius: 12px;
             position: relative;
             transition: all 0.4s ease;
-            border: 1px solid transparent;
+            border: none;
         }
 
         body.dark-theme .process-step {
@@ -706,14 +1030,14 @@
         .process-step:hover {
             background: var(--card-bg);
             box-shadow: 0 8px 30px rgba(0, 194, 168, 0.15);
-            border-color: #00C2A8;
+            
             transform: translateY(-5px);
         }
 
         .step-number {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #00C2A8 0%, #00E5C0 100%);
+            background: #00C2A8;
             color: #1A1F25;
             border-radius: 50%;
             display: flex;
@@ -751,17 +1075,17 @@
         }
 
         .faq-item {
-            background: var(--card-bg);
+            background: var(--bg-tertiary);
             border-radius: 12px;
             margin-bottom: 20px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
+            border: none;
             transition: all 0.3s ease;
         }
 
         .faq-item:hover {
-            border-color: #00C2A8;
+            
         }
 
         .faq-question {
@@ -808,26 +1132,66 @@
         /* Contact Section */
         .contact {
             padding: 80px 0;
-            background: linear-gradient(135deg, #00C2A8 0%, #00a890 100%);
+            background: #00C2A8;
             color: #ffffff;
         }
 
         .contact-content {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
         }
 
-        .contact h2 {
-            font-size: 42px;
-            margin-bottom: 24px;
+        .contact-info {
+            padding: 40px 0;
+        }
+
+        .contact-info h2 {
+            font-size: 38px;
+            margin-bottom: 16px;
             color: #ffffff;
+            line-height: 1.2;
         }
 
-        .contact p {
+        .contact-info .subtitle {
             font-size: 20px;
             margin-bottom: 40px;
             opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 12px 0;
+        }
+
+        .contact-item:hover {
+            opacity: 0.8;
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
         }
 
         .contact-form {
@@ -852,7 +1216,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 14px;
             background: rgba(255, 255, 255, 0.2);
@@ -863,13 +1228,28 @@
             transition: all 0.3s ease;
         }
 
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ffffff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+        }
+
+        .form-group select option {
+            background: #00C2A8;
+            color: #ffffff;
+        }
+
         .form-group input::placeholder,
         .form-group textarea::placeholder {
             color: rgba(255, 255, 255, 0.6);
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #ffffff;
             background: rgba(255, 255, 255, 0.25);
@@ -913,23 +1293,22 @@
             display: block;
         }
 
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            text-align: center;
-            transition: all 0.5s ease;
-        }
-
-        body.dark-theme footer {
-            background: rgba(0, 0, 0, 0.5);
-            border-top: 1px solid rgba(0, 194, 168, 0.1);
-            color: rgba(255, 255, 255, 0.6);
+        /* Large screens - push stats to the edge */
+        @media (min-width: 1241px) {
+                    .hero-stats {
+                right: calc((100vw - 1240px) / 2 * -1 - 40px);
+            }
         }
 
         /* Responsive */
         @media (max-width: 968px) {
+            .hero {
+                height: auto;
+                padding: 0;
+            }
+
+            
+
             .hero-content,
             .cases-grid,
             .services-grid,
@@ -949,12 +1328,41 @@
                 font-size: 38px;
             }
 
-            .header-right {
-                gap: 15px;
+            .hero-text {
+                grid-column: 1;
             }
 
-            .header-phone {
-                font-size: 16px;
+                    .hero-stats {
+            position: absolute;
+            right: 0;
+            top: -80px;
+            width: 450px;
+            height: 700px;
+            display: grid;
+            justify-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 50px 30px 60px 30px;
+            background: var(--bg-tertiary);
+            border-radius: 0;
+            z-index: 10;
+        }
+
+            .hero-stat-number {
+                font-size: 36px;
+            }
+
+            .hero-bottom-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-text .subtitle {
+                max-width: 100%;
+            }
+
+            .header-right {
+                gap: 15px;
             }
 
             .theme-switch {
@@ -971,6 +1379,11 @@
             body.dark-theme .theme-switch .slider {
                 left: 38px;
             }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
         }
 
         @media (max-width: 640px) {
@@ -985,10 +1398,6 @@
 
             .filter-btn {
                 width: 100%;
-            }
-
-            .header-phone {
-                display: none;
             }
         }
     </style>
@@ -1005,9 +1414,17 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">Bitrix24 Experts</div>
+                <div class="logo">Метод Васечки</div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#cases">Кейсы</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                    </ul>
+                </nav>
                 <div class="header-right">
-                    <a href="tel:+79991234567" class="header-phone">+7 (999) 123-45-67</a>
+                    <a href="https://t.me/bearded_illirian" target="_blank" class="telegram-btn">
+                        <span>📱</span> Написать в телеграм
+                    </a>
                     <div class="theme-switch" id="themeSwitch">
                         <div class="slider">
                             <span class="icon">☀️</span>
@@ -1023,59 +1440,38 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Внедрим <span class="highlight">Битрикс24</span> и автоматизируем ваш бизнес</h1>
-                    <p class="subtitle">Настроим CRM, задачи, воронки продаж и обучим команду за 2-4 недели</p>
-                    
-                    <ul class="benefits-list">
-                        <li>Увеличение продаж на 30-50% за первый год</li>
-                        <li>Экономия времени на рутинных задачах до 40%</li>
-                        <li>Полная прозрачность всех процессов в компании</li>
-                        <li>Гарантия результата и техподдержка 24/7</li>
-                    </ul>
-                    
-                    <a href="#contact" class="cta-button">Получить консультацию</a>
-                </div>
-                <div class="hero-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 500'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300C2A8;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2300E5C0;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad1)' x='50' y='50' width='500' height='400' rx='20'/%3E%3Ctext x='300' y='250' font-family='Arial' font-size='48' fill='white' text-anchor='middle' font-weight='bold'%3EБитрикс24%3C/text%3E%3C/svg%3E" alt="Битрикс24">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Возможности Битрикс24 для вашего бизнеса</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>CRM и продажи</h3>
-                    <p>Управление клиентами, сделками и воронками продаж. Автоматизация процессов от лида до закрытия сделки</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">✓</div>
-                    <h3>Задачи и проекты</h3>
-                    <p>Контроль выполнения задач, диаграммы Ганта, отслеживание времени и эффективности команды</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Коммуникации</h3>
-                    <p>Чаты, видеозвонки, корпоративная соцсеть и единое пространство для общения команды</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📞</div>
-                    <h3>Телефония</h3>
-                    <p>IP-телефония с записью звонков, интеграция с CRM и автоматическое создание задач</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
-                    <h3>Сайты и лендинги</h3>
-                    <p>Конструктор сайтов, интернет-магазинов и посадочных страниц без программирования</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3>Склад и документы</h3>
-                    <p>Управление складом, товарами, документооборот и электронная подпись</p>
+                    <div class="hero-main-content">
+                        <h1>Наведем порядок в процессах<br><span class="animated-text-hero"></span></h1>
+                        <ul class="hero-list">
+                            <li>настроим Битрикс24 и обучим команду</li>
+                            <li>интегрируем 1С, телефонию и другие сервисы</li>
+                            <li>настроим аналитику и отчеты</li>
+                            <li>окажем поддержку и сопровождение</li>
+                        </ul>
+                    </div>
+                    <div class="hero-bottom-content">
+                        <a href="#contact" class="cta-button scroll-to-contact">Обсудить задачу</a>
+                        <p class="subtitle">Запишитесь на созвон лично с Виктором Васечка и получите топ-3 решения по развитию вашего бизнеса</p>
+                    </div>
+                                </div>
+                <div class="hero-stats">
+                    <h3>Метод Васечки в цифрах</h3>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">9 лет</div>
+                        <div class="hero-stat-label">внедряем Битрикс24</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">210+</div>
+                        <div class="hero-stat-label">клиентов</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">87%</div>
+                        <div class="hero-stat-label">клиентов - лидеры рынка РФ или своего региона</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="hero-stat-number">35</div>
+                        <div class="hero-stat-label">отраслей</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1084,7 +1480,7 @@
     <!-- Problems -->
     <section class="problems">
         <div class="container">
-            <h2 class="section-title">Какие проблемы решает Битрикс24</h2>
+            <h2 class="section-title">Какие проблемы ежедневно испытывают 90% предпринимателей</h2>
             <div class="problems-grid">
                 <div class="problem-card">
                     <h3>🔥 Теряете клиентов</h3>
@@ -1106,172 +1502,126 @@
         </div>
     </section>
 
-    <!-- Services -->
-    <section class="services">
+    <!-- Features -->
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">Наши услуги и тарифы</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Базовое внедрение</h3>
-                    <div class="price">от 80 000 ₽</div>
-                    <ul>
-                        <li>Настройка CRM и воронок продаж</li>
-                        <li>Интеграция с телефонией</li>
-                        <li>Настройка задач и проектов</li>
-                        <li>Базовое обучение команды (4 часа)</li>
-                        <li>1 месяц поддержки</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Оставить заявку</a>
+            <h2 class="section-title">Как Битрикс24 поможет <span class="animated-text"></span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Управление маркетингом</h3>
+                    <p>Планирование и анализ маркетинговых кампаний, отслеживание эффективности каналов привлечения клиентов</p>
                 </div>
-                <div class="service-card">
-                    <h3>Полное внедрение</h3>
-                    <div class="price">от 150 000 ₽</div>
-                    <ul>
-                        <li>Всё из базового тарифа</li>
-                        <li>Интеграция с 1С и другими системами</li>
-                        <li>Настройка автоматизации бизнес-процессов</li>
-                        <li>Полное обучение команды (12 часов)</li>
-                        <li>Разработка регламентов работы</li>
-                        <li>3 месяца поддержки</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Оставить заявку</a>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Управление продажами</h3>
+                    <p>Управление клиентами, сделками и воронками продаж. Автоматизация процессов от лида до закрытия сделки</p>
                 </div>
-                <div class="service-card">
-                    <h3>Индивидуальные интеграции</h3>
-                    <div class="price">от 50 000 ₽</div>
-                    <ul>
-                        <li>Интеграция с любыми системами</li>
-                        <li>Разработка кастомных решений</li>
-                        <li>API и webhooks</li>
-                        <li>Синхронизация данных</li>
-                        <li>Миграция из других CRM</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Обсудить проект</a>
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Управление производством</h3>
+                    <p>Контроль производственных процессов, планирование ресурсов и мониторинг выполнения заказов</p>
                 </div>
-                <div class="service-card">
-                    <h3>Техподдержка</h3>
-                    <div class="price">от 15 000 ₽/мес</div>
-                    <ul>
-                        <li>Помощь пользователям 24/7</li>
-                        <li>Доработка и оптимизация</li>
-                        <li>Обновление и настройка</li>
-                        <li>Консультации по работе</li>
-                        <li>Приоритетная поддержка</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">Подключить</a>
+                <div class="feature-card">
+                    <div class="feature-icon">✓</div>
+                    <h3>Задачи и проекты</h3>
+                    <p>Контроль выполнения задач, диаграммы Ганта, отслеживание времени и эффективности команды</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>Внутренние процессы</h3>
+                    <p>Автоматизация внутренних бизнес-процессов, документооборот и корпоративное взаимодействие</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Коммуникации с клиентами</h3>
+                    <p>Омниканальные коммуникации, чат-боты, email-рассылки и конструктор сайтов для привлечения клиентов</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Cases -->
-    <section class="cases">
+    <section class="cases" id="cases">
         <div class="container">
             <h2 class="section-title">Кейсы наших клиентов</h2>
             
             <div class="cases-filter">
-                <button class="filter-btn active" data-filter="all">Все проекты</button>
-                <button class="filter-btn" data-filter="retail">Розница</button>
-                <button class="filter-btn" data-filter="services">Услуги</button>
-                <button class="filter-btn" data-filter="production">Производство</button>
-                <button class="filter-btn" data-filter="b2b">B2B продажи</button>
+                <button class="filter-btn active" data-filter="all">Все кейсы <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="production">Производство <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="sales">Продажи и сервис <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="medicine">Медицина <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="services">Услуги <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="horeca">HoReCa <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="developer">Застройщики <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="education">Образование <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="gov">ГОСы и АНО <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="fitness">Фитнес <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="construction">Строительство <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="trade">Торговля <span class="filter-count"></span></button>
             </div>
 
-            <div class="cases-grid">
-                <div class="case-item" data-category="retail">
-                    <div class="case-header">
-                        <div class="case-category">Розничная торговля</div>
-                        <h3>Сеть магазинов электроники</h3>
-                        <p>15 точек продаж, 80 сотрудников</p>
-                    </div>
-                    <div class="case-body">
-                        <div class="case-challenge">
-                            <h4>Задача:</h4>
-                            <p>Объединить все магазины в единую систему учета, автоматизировать заказы поставщикам и контролировать остатки на складах</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <div class="metric-value">+45%</div>
-                                <div class="metric-label">Рост продаж</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">-30%</div>
-                                <div class="metric-label">Затраты времени</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="cases-progress" id="casesProgress"></div>
+            <div class="cases-grid" id="casesGrid"></div>
+            <div class="load-more-container">
+                <button class="load-more-btn" id="loadMoreBtn">Смотреть еще</button>
+            </div>
+        </div>
+    </section>
 
-                <div class="case-item" data-category="services">
-                    <div class="case-header">
-                        <div class="case-category">Сфера услуг</div>
-                        <h3>Стоматологическая клиника</h3>
-                        <p>3 филиала, 45 сотрудников</p>
-                    </div>
-                    <div class="case-body">
-                        <div class="case-challenge">
-                            <h4>Задача:</h4>
-                            <p>Автоматизировать запись пациентов, контролировать загрузку врачей и снизить количество пропущенных приемов</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <div class="metric-value">+60%</div>
-                                <div class="metric-label">Запись онлайн</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">-70%</div>
-                                <div class="metric-label">Пропуски приёмов</div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Наши услуги и тарифы</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Базовый проект</h3>
+                    <div class="price">от 147 000 ₽</div>
+                    <ul>
+                        <li>Настройка воронок продаж</li>
+                        <li>Интеграция с IP-телефонией</li>
+                        <li>Подключение сайта и мессенджеров</li>
+                        <li>Обучение</li>
+                        <li>Сопровождение 1 месяц</li>
+                    </ul>
+                    <a href="https://t.me/bearded_illirian" target="_blank" class="cta-button">Написать в телеграм</a>
                 </div>
-
-                <div class="case-item" data-category="production">
-                    <div class="case-header">
-                        <div class="case-category">Производство</div>
-                        <h3>Мебельная фабрика</h3>
-                        <p>120 сотрудников, производство на заказ</p>
-                    </div>
-                    <div class="case-body">
-                        <div class="case-challenge">
-                            <h4>Задача:</h4>
-                            <p>Автоматизировать производственный цикл от заказа до доставки, контролировать сроки и загрузку производства</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <div class="metric-value">+35%</div>
-                                <div class="metric-label">Производительность</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">-50%</div>
-                                <div class="metric-label">Срывы сроков</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="service-card">
+                    <h3>Уникальный проект</h3>
+                    <div class="price">от 840 000 ₽</div>
+                    <ul>
+                        <li>Разработка технического задания</li>
+                        <li>Оцифровка всех бизнес-процессов</li>
+                        <li>Интеграция с 1С и сайтами</li>
+                        <li>Разработка уникальных решений</li>
+                        <li>Обучение</li>
+                        <li>Сопровождение 3 месяца</li>
+                    </ul>
+                    <a href="https://t.me/bearded_illirian" target="_blank" class="cta-button">Написать в телеграм</a>
                 </div>
-
-                <div class="case-item" data-category="b2b">
-                    <div class="case-header">
-                        <div class="case-category">B2B продажи</div>
-                        <h3>Дистрибьютор оборудования</h3>
-                        <p>50 менеджеров по продажам</p>
-                    </div>
-                    <div class="case-body">
-                        <div class="case-challenge">
-                            <h4>Задача:</h4>
-                            <p>Систематизировать работу с дилерами, автоматизировать отчетность и контролировать выполнение планов продаж</p>
-                        </div>
-                        <div class="case-metrics">
-                            <div class="metric">
-                                <div class="metric-value">+52%</div>
-                                <div class="metric-label">Выполнение плана</div>
-                            </div>
-                            <div class="metric">
-                                <div class="metric-value">3.2 млн ₽</div>
-                                <div class="metric-label">Экономия в месяц</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="service-card">
+                    <h3>Индивидуальные решения</h3>
+                    <div class="price">от 57 000 ₽</div>
+                    <ul>
+                        <li>Интеграции с любыми системами</li>
+                        <li>Разработка личных кабинетов</li>
+                        <li>Обмен данными</li>
+                        <li>Уникальные доработки</li>
+                        <li>Миграция из других CRM</li>
+                    </ul>
+                    <a href="https://t.me/bearded_illirian" target="_blank" class="cta-button">Написать в телеграм</a>
+                </div>
+                <div class="service-card">
+                    <h3>Поддержка и сопровождение</h3>
+                    <div class="price">от 14 700 ₽</div>
+                    <ul>
+                        <li>Решение любых задач</li>
+                        <li>Дополнительные интеграции</li>
+                        <li>Доработка и оптимизация настроек</li>
+                        <li>Консультации и обучение</li>
+                        <li>Без абонентской оплаты и сгорающих часов</li>
+                    </ul>
+                    <a href="https://t.me/bearded_illirian" target="_blank" class="cta-button">Написать в телеграм</a>
                 </div>
             </div>
         </div>
@@ -1359,8 +1709,21 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-content">
-                <h2>Готовы начать?</h2>
-                <p>Оставьте заявку и получите бесплатную консультацию и расчет стоимости внедрения</p>
+                <div class="contact-info">
+                    <h2>Обсудите вашу задачу лично с Виктором Васечка</h2>
+                    <p class="subtitle">Запланируйте звонок прямо сейчас (это бесплатно)</p>
+                    
+                    <div class="contact-details">
+                        <a href="https://t.me/bearded_illirian" target="_blank" class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <span>Telegram</span>
+                        </a>
+                        <a href="/cdn-cgi/l/email-protection#8ff9f9cff9eefceaece7e4eea1ece0e2" class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <span><span class="__cf_email__" data-cfemail="94e2e2d4e2f5e7f1f7fcfff5baf7fbf9">[email&#160;protected]</span></span>
+                        </a>
+                    </div>
+                </div>
                 
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
@@ -1372,16 +1735,14 @@
                         <input type="tel" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Название компании</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Комментарий</label>
-                        <textarea id="message" name="message"></textarea>
+                        <label for="employees">Количество сотрудников *</label>
+                        <select id="employees" name="employees" required>
+                            <option value="">Выберите...</option>
+                            <option value="до 10">до 10</option>
+                            <option value="11-50">11-50</option>
+                            <option value="50-200">50-200</option>
+                            <option value="200+">200+</option>
+                        </select>
                     </div>
                     <button type="submit" class="submit-button">Отправить заявку</button>
                     <div class="success-message" id="successMessage">
@@ -1392,14 +1753,738 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Bitrix24 Experts. Официальный партнер Битрикс24</p>
-        </div>
-    </footer>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Cases data
+        const casesData = [
+            {
+                category: 'production',
+                categoryDisplay: 'Производство полуприцепов',
+                title: 'Завод Grunwald',
+                url: 'https://grunwald.ru/',
+                info: 'Лидер рынка РФ, 608+ сотрудников',
+                description: 'Создали на базе Битрикс24 единую цифровую среду для работы продаж, маркетинга, снабжения и финансовой службы. Настроили интеграцию Битрикс24 и 1С',
+                metrics: [
+                    { value: 'х5 раз', label: 'Рост выручки, с 2,2 до 11 млрд' },
+                    { value: '3 секунды', label: 'Необходимо руководителям чтобы узнать ключевые показатели компании' }
+                ]
+            },
+            {
+                category: 'production',
+                categoryDisplay: 'Производство ворот',
+                title: 'Landal PRO',
+                url: 'https://landal.pro/',
+                info: '10 офисов, 7 регионов присутствия, 877 частных и 556 корпоративных клиентов за 2024 год',
+                description: 'Создали на базе Битрикс24 единую цифровую среду для работы маркетинга, продаж, производства, снабжения и монтажа',
+                metrics: [
+                    { value: 'х3 раза', label: 'Рост выручки, с 71 до 220 млн' },
+                    { value: 'на 97%', label: 'Сократили нарушение сроков в производстве и монтаже проектов' }
+                ]
+            },
+            {
+                category: 'developer',
+                categoryDisplay: 'Застройщик многоквартирных домов',
+                title: 'Навигатор Девелопмент',
+                url: 'https://navigator-tmn.ru/',
+                info: 'Один из лидеров рынка в Тюменской области',
+                description: 'Выстроили на базе Битрикс24 процессы маркетинга и продаж, настроили интеграцию с 15+ дополнительными сервисами, разработали календарь бронирования показов',
+                metrics: [
+                    { value: 'на 85%', label: 'Было сокращено количество используемых в работе Excel-таблиц' },
+                    { value: 'х3,5 раза', label: 'Ускорение прохождения заявки по стадиям согласования' }
+                ]
+            },
+            {
+                category: 'developer',
+                categoryDisplay: 'Первая компания редевелопмента в РФ',
+                title: 'Колесник',
+                url: 'https://ddkolesnik.com/',
+                info: '4 млрд привлеченных инвестиций в проекты',
+                description: 'С помощью Битрикс24 оцифровали процессы работы с инвесторами и проектами, разработали чат-бота, настроили генерацию документов',
+                metrics: [
+                    { value: '500+', label: 'Инвесторов приняли участие в проектах клиента' },
+                    { value: 'х7 раз', label: 'Ускорилась работа сотрудников за счет автоматизации' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Digital агентство',
+                title: 'Менделеев Маркетинг',
+                url: 'https://xn--b1adcbaa4bek.xn--p1ai/',
+                info: 'Команда 110+ человек ведет крупные федеральные проекты',
+                description: 'Разработали систему управления сметами по проектам агентства, автоматизировали процесс согласования смет, оцифровали управление входящими/исходящими платежами',
+                metrics: [
+                    { value: '2-3 клика', label: 'Необходимо сотрудникам чтобы найти любую информацию по смете' },
+                    { value: 'х3,8 раза', label: 'Ускорилась работа менеджеров проектов' }
+                ]
+            },
+            {
+                category: 'horeca',
+                categoryDisplay: 'Ресторанный холдинг',
+                title: 'Соболев Альянс',
+                url: 'https://sobolevalliance.ru/',
+                info: 'Лидер рынка Тюмени: 30+ заведений, 3 пивоварни, сыроварня, франшиза в другие регионы',
+                description: 'Оцифровали на базе Битрикс24 процесс согласования и планирования исходящих платежей, настроили интеграцию с 1С',
+                metrics: [
+                    { value: '65+ тыс. счетов', label: 'Согласовал клиент с момента запуска решения' },
+                    { value: 'х5 раз', label: 'Сократилось время на обработку платежей' }
+                ]
+            },
+            {
+                category: 'production',
+                categoryDisplay: 'Производство противопожарных окон и перегородок',
+                title: 'Концепт',
+                url: 'https://koncept-gk.ru/',
+                info: 'Лидер рынка Тюменской области и ближайших регионов, 250+ млн выручки в 2024',
+                description: 'Создали на базе Битрикс24 единую цифровую среду для работы всех отделов: продажи, инженеры, производство, снабжение, юристы и финансы',
+                metrics: [
+                    { value: '+250 млн', label: 'Рост выручки, с 380 млн в 2023 до 630 млн в 2024' },
+                    { value: '2-3 клика', label: 'Необходимо чтобы найти нужную информацию по сделке' }
+                ]
+            },
+            {
+                category: 'sales',
+                categoryDisplay: 'Продажи и сервис уличной мебели',
+                title: 'СпортСтрой72',
+                url: '',
+                info: 'Официальный представитель компании Аданат в Тюменской области',
+                description: 'Перевезли клиента из зоопарка Excel-таблиц в Битрикс24, выстроили работу 11 бизнес-процессов: продажи, замеры, расчет, производство, монтаж, расчеты с клиентами и подрядчиками',
+                metrics: [
+                    { value: '7 таблиц', label: 'Ликвидировали в результате переезда в Битрикс24' },
+                    { value: 'в 5,7 раз', label: 'Сократилось время на ручное внесение данных' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Банкротное агентство',
+                title: 'Натальи Катряевой',
+                url: 'https://katryaeva.ru/',
+                info: 'Команда 60+ человек, один из лидеров по онлайн-формату работы с клиентами',
+                description: 'Выстроили управление ключевыми процессами: маркетинг, продажи, оказание услуг и сбор оплат. Разработали личный кабинет для клиентов',
+                metrics: [
+                    { value: '98%', label: 'Рутинных действий автоматизировали' },
+                    { value: '950+', label: 'Клиентов в единовременной работе' }
+                ]
+            },
+            {
+                category: 'sales',
+                categoryDisplay: 'Продажи и сервис весоизмерительной техники',
+                title: 'Весоприбор',
+                url: 'https://www.vesopribor.ru/',
+                info: 'Официальный представитель компании Тензо-М в Тюменской области',
+                description: 'С помощью Битрикс24 оцифровали ключевые процессы: продажи, участие в торгах, учет приборов, настроили генерацию документов и штрих-кодов',
+                metrics: [
+                    { value: 'в 5 раз', label: 'Быстрее можно найти нужную информацию по контракту' },
+                    { value: 'на 73%', label: 'Сократили время на рутинные действия' }
+                ]
+            },
+            {
+                category: 'education',
+                categoryDisplay: 'Образование',
+                title: 'Институт психотерапии и клинической психологии',
+                url: 'https://psyinst.moscow/',
+                info: 'Один из ведущих образовательных центров Москвы в своей сфере',
+                description: 'Оцифровали процессы: продажи, обучение, бронирование ресурсов, настроили интеграцию с 1С и LMS Moodle, настроили автоматическую генерацию документов',
+                metrics: [
+                    { value: 'в 3,5 раза', label: 'Сократили время на рутинные действия' },
+                    { value: '5+ тыс.', label: 'Учеников прошли обучение на платформе Moodle' }
+                ]
+            },
+            {
+                category: 'sales',
+                categoryDisplay: 'Продажи и сервис холодильной техники',
+                title: 'Thermo King',
+                url: 'https://thermokingcenter.ru/',
+                info: 'ТОП 1 дилер Thermo King в РФ',
+                description: 'Оцифровали процессы продаж, автоматизировали повторные продажи с помощью конвейера сделок',
+                metrics: [
+                    { value: 'в 3,5 раза', label: 'Ускорили работу менеджеров' },
+                    { value: '6,5 тыс.', label: 'Постоянных клиентов ежедневно обрабатывает Битрикс24' }
+                ]
+            },
+            {
+                category: 'sales',
+                categoryDisplay: 'Продажи и сервис автомобильной техники',
+                title: 'SITRAK',
+                url: 'https://kartonis-center.ru/',
+                info: 'Ведущий дилер SITRAK в РФ',
+                description: 'Оцифровали процессы продаж, автоматизировали повторные продажи с помощью конвейера сделок',
+                metrics: [
+                    { value: 'в 4,2 раза', label: 'Ускорили работу менеджеров' },
+                    { value: '5 параметров', label: 'В карточке клиента для расчета рейтинга' }
+                ]
+            },
+            {
+                category: 'production',
+                categoryDisplay: 'Производство обуви',
+                title: 'TREK',
+                url: 'https://trekshoes.ru/',
+                info: 'Одно из крупнейших производств обуви в РФ, 350+ сотрудников',
+                description: 'Перевезли процессы продаж из amoCRM в Битрикс24, оцифровали процесс согласования исходящих платежей',
+                metrics: [
+                    { value: 'на 0,5 млн.', label: 'В год сократили расходы на лицензии CRM' },
+                    { value: 'в 3,5 часа', label: 'Сократился ручной труд бухгалтерии' }
+                ]
+            },
+            {
+                category: 'production',
+                categoryDisplay: 'Производство наград из стекла',
+                title: 'Награды всем',
+                url: 'https://nagradyvsem.ru/',
+                info: 'Один из лидеров рынка в сфере производства наград из стекла',
+                description: 'Оцифровали все ключевые процессы: продажи, дизайн, производство, упаковка и отгрузка',
+                metrics: [
+                    { value: 'в 4,2 раз', label: 'Ускорили работу сотрудников' },
+                    { value: '2-3 клика', label: 'Необходимо чтобы найти информацию по заказу' }
+                ]
+            },
+            {
+                category: 'gov',
+                categoryDisplay: 'Государственное учреждение',
+                title: 'Проектная дирекция Минстрой',
+                url: '',
+                info: 'В работе дирекции 85 регионов РФ',
+                description: 'Разработали на базе Битрикс24 сервис для сбора отчетности о выполненных проектах',
+                metrics: [
+                    { value: 'в 3,8 раза', label: 'Сократили время на сбор отчетов' },
+                    { value: '85 регионов', label: 'Регулярно предоставляют отчеты' }
+                ]
+            },
+            {
+                category: 'gov',
+                categoryDisplay: 'АНО',
+                title: 'Проект по NDA',
+                url: '',
+                info: '30+ сотрудников ежегодно курируют 250+ проектов',
+                description: 'Оцифровали внутренний документооборот организации: реестр договоров, спецификаций, оплат и закрывающих документов',
+                metrics: [
+                    { value: 'в 5,7 раз', label: 'Сократили время на рутинные действия' },
+                    { value: '5+ лет', label: 'Бесперебойно работают бизнес-процессы' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Услуги в B2B',
+                title: 'Лизинг24',
+                url: 'https://leasing-24.ru/',
+                info: 'Лизинговый брокер, представитель всех ведущих лизинговых компаний',
+                description: 'Выстроили бизнес-процесс обработки заявок и оказания услуг, настроили интеграцию с внешними сервисами и генерацию документов',
+                metrics: [
+                    { value: 'в 3,5 раза', label: 'Ускорили работу сотрудников' },
+                    { value: 'на 65%', label: 'Выросло количество заказов без увеличения команды' }
+                ]
+            },
+            {
+                category: 'education',
+                categoryDisplay: 'Дополнительное профессиональное образование',
+                title: 'ГСУ',
+                url: 'https://gsuprof.ru/',
+                info: 'Один из лидеров рынка дополнительного образования в Тюменской области и ХМАО',
+                description: 'Оцифровали все ключевые бизнес-процессы: продажи и оказание услуг, запустили образовательный портал на базе Битрикс24',
+                metrics: [
+                    { value: '85%', label: 'Рутинных действий автоматизировали' },
+                    { value: 'в 2,7 раз', label: 'Вырос объем оказываемых услуг' }
+                ]
+            },
+            {
+                category: 'education',
+                categoryDisplay: 'Учебный центр',
+                title: 'Дельфа',
+                url: 'https://delfa72.ru/',
+                info: 'Лидер рынка в сфере дополнительного образования для детей (г. Тюмень)',
+                description: 'Выстроили на базе Битрикс24 ключевые процессы: продажи, контроль оказания услуг, работа с базой постоянных клиентов',
+                metrics: [
+                    { value: 'в 2-3 клика', label: 'Доступна любая информация по клиенту' },
+                    { value: '6 таблиц', label: 'Сократили и перевезли процессы в Битрикс24' }
+                ]
+            },
+            {
+                category: 'fitness',
+                categoryDisplay: 'Фитнес-клуб',
+                title: 'Даудель спорт',
+                url: 'https://daudelsport.ru/',
+                info: 'Лидер рынка в Тюмени, в команде 100+ человек',
+                description: 'Выстроили процессы продаж абонементов и их продления, настроили интеграцию с источниками заявок и мессенджерами',
+                metrics: [
+                    { value: '78%', label: 'Рутинных действий автоматизировали' },
+                    { value: 'в 2-3 клика', label: 'Доступна любая информация по продажам' }
+                ]
+            },
+            {
+                category: 'fitness',
+                categoryDisplay: 'Сеть фитнес-клубов',
+                title: 'ФИЗКУЛЬТУРА',
+                url: 'https://fizkultura63.ru/',
+                info: 'Одна из крупнейших сетей в Самаре: 3 филиала, 96 тренеров',
+                description: 'Оцифровали процесс найма сотрудников на базе Битрикс24, настроили воронки: заявки на подбор, отклики от кандидатов и адаптация',
+                metrics: [
+                    { value: 'на 78%', label: 'Сократили рутинные действия HR-отдела' },
+                    { value: '1 минута', label: 'Уходит на создание заявки на подбор' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Банкротство физ.лиц',
+                title: 'Центр Защиты Должников',
+                url: 'https://czdrf.ru/',
+                info: 'Один из лидеров рынка БФЛ в Перми, 1 тыс.+ успешно завершенных дел',
+                description: 'На базе Битрикс24 оцифровали ключевые бизнес-процессы: продажи, оказание услуг и сбор ежемесячных оплат',
+                metrics: [
+                    { value: 'х6 раз', label: 'Вырос клиент по выручке' },
+                    { value: '540 дел', label: 'Одновременно находится в работе' }
+                ]
+            },
+            {
+                category: 'medicine',
+                categoryDisplay: 'Частная многопрофильная клиника',
+                title: 'NEXIMA',
+                url: 'https://nexima.pro/',
+                info: 'Специализируется на превентивной медицине, первопроходцы в своем направлении',
+                description: 'Запустили Битрикс24 для управления клиентским сервисом, подключили мессенджеры для коммуникации с клиентами',
+                metrics: [
+                    { value: 'в 7 раз', label: 'Сократили время реакции на обращение' },
+                    { value: '2-3 клика', label: 'Нужно чтобы найти клиента в базе' }
+                ]
+            },
+            {
+                category: 'medicine',
+                categoryDisplay: 'Медицинский центр',
+                title: 'Авиценна',
+                url: 'https://avicenna72.ru/',
+                info: 'Один из лидеров рынка Тюмени',
+                description: 'Запустили Битрикс24 для управления продажами и маркетингом, настроили интеграцию с 1С, подключили источники заявок',
+                metrics: [
+                    { value: 'на 74%', label: 'Сократили время на рутинные действия' },
+                    { value: 'на 25%', label: 'Сократили затраты на маркетинг' }
+                ]
+            },
+            {
+                category: 'trade',
+                categoryDisplay: 'Поставки медицинских материалов',
+                title: 'Альхон',
+                url: 'https://alhon-t.ru/',
+                info: 'Ведущий поставщик в Тюменской области и ХМАО',
+                description: 'На базе Битрикс24 оцифровали все бизнес-процессы: продажи, участие в тендерах, расчет заявок, исполнение контрактов, финансы',
+                metrics: [
+                    { value: 'на 76%', label: 'Сократили рутинные действия' },
+                    { value: 'в 5 раз', label: 'Ускорили доступ к данным по контрактам' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Агентство системных коммуникаций',
+                title: 'Веллер Медиа',
+                url: 'https://wellermedia.ru/',
+                info: '20 лет работает с госорганами, корпорациями и крупным бизнесом',
+                description: 'Оцифровали ключевые процессы: продажи, исполнение контрактов, расчеты с подрядчиками, закрывающие документы',
+                metrics: [
+                    { value: 'в 3,5 раза', label: 'Быстрее находят информацию по контрактам' },
+                    { value: 'на 38%', label: 'Сократили время на рутинные действия' }
+                ]
+            },
+            {
+                category: 'developer',
+                categoryDisplay: 'Застройщик многоквартирных домов',
+                title: 'ХаризМЫ (ex.CБК)',
+                url: 'https://harizmi.ru/',
+                info: 'Один из ведущих застройщиков Тюменской области',
+                description: 'Запустили управление маркетингом и продажами, разработали шахматку квартир, настроили выгрузку объектов на площадки, разработали кастомные отчеты',
+                metrics: [
+                    { value: '1200+', label: 'Квартир реализовал клиент с Битрикс24' },
+                    { value: 'на 72%', label: 'Сократили рутинные действия отдела продаж' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Банкротство физ.лиц',
+                title: 'ПБ Свобода',
+                url: 'https://pbsvoboda.ru/',
+                info: 'Компания в БФЛ, которая растет за счет крутого сервиса',
+                description: 'Выстроили ключевые процессы: продажи, оказание услуг и сбор ежемесячных оплат',
+                metrics: [
+                    { value: 'в 3,8 раз', label: 'Вырос бизнес без увеличения штата' },
+                    { value: 'на 92%', label: 'Сократили рутинные действия' }
+                ]
+            },
+            {
+                category: 'horeca',
+                categoryDisplay: 'Термальный курорт',
+                title: 'ЛетоЛето',
+                url: 'https://leto-leto.com/',
+                info: 'Крупнейший термальный курорт Западной Сибири',
+                description: 'Оцифровали процесс работы корпоративного отдела продаж, автоматизировали расчет смет',
+                metrics: [
+                    { value: 'на 47%', label: 'Сократили рутинные действия' },
+                    { value: '2-3 клика', label: 'Нужно чтобы найти информацию по клиенту' }
+                ]
+            },
+            {
+                category: 'production',
+                categoryDisplay: 'Рекламно-производственная компания',
+                title: 'Флагман',
+                url: '',
+                info: 'Одна из ведущих компаний Тюмени в своей сфере',
+                description: 'Оцифровали работу отделов продаж, дизайна и производства, автоматизирован расчет оплаты дизайнерам и учет бракованных заказов',
+                metrics: [
+                    { value: 'на 47%', label: 'Сократили время на передачу информации' },
+                    { value: 'на 100%', label: 'Сократили время на расчет оплаты дизайнерам' }
+                ]
+            },
+            {
+                category: 'production',
+                categoryDisplay: 'Рекламно-производственная компания',
+                title: 'Тюменская вышивальная фабрика',
+                url: 'https://tyumenfactory.ru/',
+                info: 'Одна из ведущих компаний Тюмени в своей сфере',
+                description: 'Автоматизировали обработку заказов и ведение продаж, настроили интеграцию с мессенджерами',
+                metrics: [
+                    { value: 'в 3 раза', label: 'Сократилось время реакции на обращения' },
+                    { value: 'на 27%', label: 'Сократили время на рутинные задачи' }
+                ]
+            },
+            {
+                category: 'trade',
+                categoryDisplay: 'Магазин мужской одежды',
+                title: 'HIS STORY',
+                url: 'https://hisstory.ru/',
+                info: 'Лидер рынка Тюмени в своей сфере',
+                description: 'Создали единую цифровую среду по работе с базой клиентов, подключили мессенджеры, настроили интеграцию с Мой Склад и программой лояльности',
+                metrics: [
+                    { value: 'на 100%', label: 'Сократили время на перенос данных между системами' },
+                    { value: 'в 3,5 раз', label: 'Ускорили процесс найма' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Реклама и мероприятия',
+                title: 'Издательский дом',
+                url: '',
+                info: 'Регулярно выпускает 3 печатных издания, организовывает деловые мероприятия',
+                description: 'Оцифровали процессы продаж, расчетов с клиентами и внутреннего документооборота, настроили генерацию документов',
+                metrics: [
+                    { value: 'на 63%', label: 'Сократили время на рутинные действия' },
+                    { value: 'в 3 раза', label: 'Ускорили доступ к информации' }
+                ]
+            },
+            {
+                category: 'construction',
+                categoryDisplay: 'Строительная компания',
+                title: 'Армада',
+                url: 'https://armada72.net/',
+                info: 'Региональный лидер по работам по закрытию контуров промышленных зданий',
+                description: 'Оцифровали процесс поиска новых проектов, работу с задачами и проектами по уже заключенным контрактам',
+                metrics: [
+                    { value: '2-3 клика', label: 'Нужно владельцу чтобы увидеть все проекты' },
+                    { value: 'на 37%', label: 'Сократили время на рутинные действия' }
+                ]
+            },
+            {
+                category: 'trade',
+                categoryDisplay: 'Торговая компания',
+                title: 'ТексТрейд',
+                url: 'https://tekstrade.ru/',
+                info: 'Один из лидеров рынка в поставках тканей на рынок РФ',
+                description: 'Оцифровали процесс обработки входящих заявок, отправки образцов и продаж, настроили интеграцию с источниками заявок',
+                metrics: [
+                    { value: '65 лет', label: 'Было самому старшему сотруднику' },
+                    { value: '7+ лет', label: 'Работают наши настройки у клиента' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Центр детского сна и развития',
+                title: 'Baby Sleep',
+                url: 'https://baby-sleep.ru/',
+                info: 'Ведущая компания России в сфере консультирования по вопросам здорового сна ребенка',
+                description: 'Оцифровали процессы маркетинга и продаж, настроили интеграцию с источниками, автоматизировали распределение заявок',
+                metrics: [
+                    { value: 'на 56%', label: 'Сократили время на рутинные задачи' },
+                    { value: 'на 100%', label: 'Сократили время на распределение заявок' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Аренда оборудования',
+                title: 'SoundEKB',
+                url: 'https://soundekb.ru/',
+                info: 'Ведущая компания в сфере аренды профессионального звукового оборудования',
+                description: 'Автоматизировали процессы продаж и предоставления услуг, разработали календарь бронирования оборудования',
+                metrics: [
+                    { value: 'на 83%', label: 'Сократили время на рутинные действия' },
+                    { value: '2 секунды', label: 'Нужно чтобы увидеть доступное оборудование' }
+                ]
+            },
+            {
+                category: 'production',
+                categoryDisplay: 'Производство аэродинамических труб',
+                title: 'Free Fly Technology',
+                url: '',
+                info: 'Уникальный пример российского производства с реализацией проектов в РФ и за рубежом',
+                description: 'Внедрили Битрикс24 для управления продажами и производством',
+                metrics: [
+                    { value: '2-3 клика', label: 'Необходимо руководителю чтобы увидеть статусы задач' },
+                    { value: 'на 58%', label: 'Сократили количество нарушений сроков' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Банкротство физ.лиц',
+                title: 'ОК БАНКРОТ',
+                url: '',
+                info: 'Франчайзи одной из крупнейших сетей в сфере БФЛ',
+                description: 'Выстроили процессы продаж, оказания услуг и сбора ежемесячных платежей, настроили интеграцию с источниками заявок',
+                metrics: [
+                    { value: 'на 97%', label: 'Сократили время на контроль оплат' },
+                    { value: 'в 4,5 раза', label: 'В среднем выросли клиенты по выручке' }
+                ]
+            },
+            {
+                category: 'developer',
+                categoryDisplay: 'Застройщик загородной недвижимости',
+                title: 'ЯРД',
+                url: 'https://yard72.ru/',
+                info: '5 коттеджных поселков, 650+ объектов',
+                description: 'Оцифровали работу отдела продаж, подключили источники заявок, создали шахматку объектов и настроили их выгрузку',
+                metrics: [
+                    { value: 'на 97%', label: 'Сократили время на выгрузку объектов' },
+                    { value: 'в 3 раза', label: 'Ускорили работу отдела продаж' }
+                ]
+            },
+            {
+                category: 'services',
+                categoryDisplay: 'Услуги в сфере HR',
+                title: 'TopSelection',
+                url: 'https://topselection-development.com/',
+                info: 'Оказывает услуги аутсорсинга и рекрутинга для лидеров рынка',
+                description: 'Оцифровали ключевые процессы: заявки от клиентов, заявки от кандидатов, базу активных кандидатов',
+                metrics: [
+                    { value: 'на 67%', label: 'Сократили время на рутинные действия' },
+                    { value: 'в 2,3 раза', label: 'Вырос бизнес без увеличения команды' }
+                ]
+            },
+            {
+                category: 'trade',
+                categoryDisplay: 'Торговля спортивными товарами',
+                title: 'Т Спорт',
+                url: 'https://optunas.com/',
+                info: 'Надежный поставщик спортивного оборудования в компании и гос.учреждения РФ',
+                description: 'Выстроили работу отдела продаж, отдела тендеров и оказания услуг, подключили источники заявок и IP-телефонию',
+                metrics: [
+                    { value: '8 лет', label: 'Работает клиент в настроенном нами Битрикс24' },
+                    { value: 'на 39%', label: 'Сократили время на рутинные действия' }
+                ]
+            }
+        ];
 
-    <script>
+        // Cases rendering
+        let currentFilter = 'all';
+        let visibleCount = 6;
+
+        function getMetricIcon(value, label) {
+            const lowerLabel = label.toLowerCase();
+            const lowerValue = value.toLowerCase();
+            
+            // Определяем тип метрики по значению и подписи
+            if (lowerValue.includes('раз') || lowerValue.includes('х')) return '📈';
+            if (lowerLabel.includes('сократ') || lowerLabel.includes('снижен')) return '⏱️';
+            if (lowerLabel.includes('рост') || lowerLabel.includes('увелич')) return '💰';
+            if (lowerLabel.includes('клиент') || lowerLabel.includes('инвестор')) return '👥';
+            if (lowerLabel.includes('секунд') || lowerLabel.includes('минут') || lowerLabel.includes('час')) return '⚡';
+            if (lowerLabel.includes('таблиц') || lowerLabel.includes('систем')) return '📊';
+            if (lowerLabel.includes('регион') || lowerLabel.includes('филиал')) return '🌍';
+            if (lowerLabel.includes('квартир') || lowerLabel.includes('объект')) return '🏠';
+            if (lowerLabel.includes('проект') || lowerLabel.includes('дел')) return '📋';
+            if (lowerLabel.includes('лет')) return '📅';
+            if (lowerLabel.includes('автоматиз') || lowerLabel.includes('рутин')) return '🤖';
+            if (lowerLabel.includes('клик')) return '🖱️';
+            
+            return '✨';
+        }
+
+        function getMetricType(value, label) {
+            const lowerLabel = label.toLowerCase();
+            const lowerValue = value.toLowerCase();
+            
+            // Позитивные метрики (рост, увеличение)
+            if (lowerLabel.includes('рост') || 
+                lowerLabel.includes('увелич') || 
+                lowerLabel.includes('вырос') ||
+                (lowerValue.includes('раз') && lowerLabel.includes('ускор')) ||
+                (lowerValue.includes('х') && !lowerLabel.includes('сократ'))) {
+                return 'metric-positive';
+            }
+            
+            // Метрики сокращения времени
+            if (lowerLabel.includes('сократ') || 
+                lowerLabel.includes('снижен') ||
+                lowerLabel.includes('быстрее') ||
+                lowerLabel.includes('ускор')) {
+                return 'metric-time';
+            }
+            
+            // Нейтральные метрики
+            return '';
+        }
+
+        function isLongValue(value) {
+            // Считаем значение длинным, если оно больше 10 символов
+            return value.length > 10;
+        }
+
+        function updateFilterCounts() {
+            const categories = ['all', 'production', 'sales', 'medicine', 'services', 'horeca', 'developer', 'education', 'gov', 'fitness', 'construction', 'trade'];
+            
+            categories.forEach(category => {
+                const count = category === 'all' 
+                    ? casesData.length 
+                    : casesData.filter(c => c.category === category).length;
+                
+                const btn = document.querySelector(`[data-filter="${category}"]`);
+                if (btn) {
+                    const countSpan = btn.querySelector('.filter-count');
+                    if (countSpan) {
+                        countSpan.textContent = `(${count})`;
+                    }
+                }
+            });
+        }
+
+        function renderCases() {
+            const casesGrid = document.getElementById('casesGrid');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const casesProgress = document.getElementById('casesProgress');
+            
+            const filteredCases = currentFilter === 'all' 
+                ? casesData 
+                : casesData.filter(c => c.category === currentFilter);
+            
+            const casesToShow = filteredCases.slice(0, visibleCount);
+            
+            // Update progress indicator
+            casesProgress.textContent = `Показано ${casesToShow.length} из ${filteredCases.length} кейсов`;
+            
+            casesGrid.innerHTML = casesToShow.map(caseItem => {
+                const titleHTML = caseItem.url 
+                    ? `<a href="${caseItem.url}" target="_blank">${caseItem.title} <span class="external-link-icon">↗</span></a>`
+                    : caseItem.title;
+                
+                return `
+                    <div class="case-item" data-category="${caseItem.category}">
+                        <div class="case-header">
+                            <div class="case-category">${caseItem.categoryDisplay}</div>
+                            <h3>${titleHTML}</h3>
+                            <p>${caseItem.info}</p>
+                        </div>
+                        <div class="case-body">
+                            <div class="case-challenge">
+                                <p>${caseItem.description}</p>
+                            </div>
+                            <div class="case-metrics">
+                                ${caseItem.metrics.map(metric => {
+                                    const icon = getMetricIcon(metric.value, metric.label);
+                                    const metricType = getMetricType(metric.value, metric.label);
+                                    const isLong = isLongValue(metric.value);
+                                    const valueClass = isLong ? 'metric-value-long' : '';
+                                    
+                                    return `
+                                        <div class="metric ${metricType}">
+                                            <div class="metric-value ${valueClass}">
+                                                <span class="metric-icon">${icon}</span>
+                                                <span class="metric-value-number">${metric.value}</span>
+                                            </div>
+                                            <div class="metric-label">${metric.label}</div>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Show/hide load more button
+            if (visibleCount >= filteredCases.length) {
+                loadMoreBtn.classList.add('hidden');
+            } else {
+                loadMoreBtn.classList.remove('hidden');
+            }
+        }
+
+        // Load more functionality
+        document.getElementById('loadMoreBtn').addEventListener('click', () => {
+            visibleCount += 6;
+            renderCases();
+        });
+
+        // Initial render
+        updateFilterCounts();
+        renderCases();
+
+        // Animated Text for Features section
+        const phrases = [
+            'навести порядок в бизнесе',
+            'увеличить продажи',
+            'вырасти в 3 раза',
+            'контролировать менеджеров',
+            'выстроить производство'
+        ];
+        let currentPhraseIndex = 0;
+        const animatedTextElement = document.querySelector('.animated-text');
+
+        function updatePhrase() {
+            if (animatedTextElement) {
+                animatedTextElement.style.animation = 'none';
+                setTimeout(() => {
+                    animatedTextElement.textContent = phrases[currentPhraseIndex];
+                    animatedTextElement.style.animation = 'slideUp 0.5s ease';
+                    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                }, 50);
+            }
+        }
+
+        // Initialize first phrase
+        if (animatedTextElement) {
+            animatedTextElement.textContent = phrases[0];
+            currentPhraseIndex = 1;
+        }
+
+        // Change phrase every 1.5 seconds
+        setInterval(updatePhrase, 1500);
+
+        // Animated Text for Hero section
+        const heroPhrases = [
+            'маркетинга',
+            'продаж',
+            'производства',
+            'оказания услуг',
+            'работы с проектами',
+            'снабжения',
+            'управления финансами',
+            'расчета проектов',
+            'HR-блока',
+            'отношений с клиентами'
+        ];
+        let currentHeroPhraseIndex = 0;
+        const animatedTextHeroElement = document.querySelector('.animated-text-hero');
+
+        function updateHeroPhrase() {
+            if (animatedTextHeroElement) {
+                animatedTextHeroElement.style.animation = 'none';
+                setTimeout(() => {
+                    animatedTextHeroElement.textContent = heroPhrases[currentHeroPhraseIndex];
+                    animatedTextHeroElement.style.animation = 'slideUp 0.5s ease';
+                    currentHeroPhraseIndex = (currentHeroPhraseIndex + 1) % heroPhrases.length;
+                }, 50);
+            }
+        }
+
+        // Initialize first hero phrase
+        if (animatedTextHeroElement) {
+            animatedTextHeroElement.textContent = heroPhrases[0];
+            currentHeroPhraseIndex = 1;
+        }
+
+        // Change hero phrase every 1.5 seconds
+        setInterval(updateHeroPhrase, 1500);
+
         // Theme Switcher
         const themeSwitch = document.getElementById('themeSwitch');
         const body = document.body;
@@ -1449,19 +2534,15 @@
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const filter = btn.dataset.filter;
+                currentFilter = filter;
+                visibleCount = 6; // Reset visible count on filter change
                 
                 // Update active button
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 
-                // Filter cases
-                document.querySelectorAll('.case-item').forEach(item => {
-                    if (filter === 'all' || item.dataset.category === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
+                // Re-render cases
+                renderCases();
             });
         });
 
@@ -1481,7 +2562,10 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
