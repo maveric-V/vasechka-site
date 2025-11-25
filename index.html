@@ -1656,9 +1656,9 @@
                             <div class="contact-method-icon">📱</div>
                             <span>Telegram</span>
                         </a>
-                        <a href="/cdn-cgi/l/email-protection#bdcbcbfdcbdcced8ded5d6dc93ded2d0" class="contact-method">
+                        <a href="/cdn-cgi/l/email-protection#6315152315021006000b08024d000c0e" class="contact-method">
                             <div class="contact-method-icon">✉️</div>
-                            <span><span class="__cf_email__" data-cfemail="ea9c9caa9c8b998f8982818bc4898587">[email&#160;protected]</span></span>
+                            <span><span class="__cf_email__" data-cfemail="3543437543544650565d5e541b565a58">[email&#160;protected]</span></span>
                         </a>
                         <a href="tel:+79123456789" class="contact-method">
                             <div class="contact-method-icon">📞</div>
@@ -1720,6 +1720,7 @@
     </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
         // Hero animated text
         const heroPhrases = [
             'стать лидером рынка',
@@ -1872,4 +1873,16 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = docu
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        }); // End DOMContentLoaded
+    </script>
+</body>
+</html>
