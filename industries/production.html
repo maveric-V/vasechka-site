@@ -233,8 +233,41 @@
         .hero h1 {
             font-size: 56px;
             font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.1;
+        }
+
+        .hero-animated-title {
+            font-size: 56px;
+            font-weight: 700;
             margin-bottom: 24px;
             line-height: 1.1;
+            min-height: 75px;
+        }
+
+        .animated-text {
+            color: var(--primary-color);
+            display: inline-block;
+            animation: fadeInOut 3s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
         }
 
         .hero-subtitle {
@@ -825,10 +858,11 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="/bitrix24">Битрикс24</a></li>
+                    <li><a href="#who">Для кого</a></li>
+                    <li><a href="#problems">Задачи</a></li>
+                    <li><a href="#products">Продукты</a></li>
                     <li><a href="#cases">Кейсы</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#faq">Вопросы</a></li>
                 </ul>
             </nav>
             <div class="header-right">
@@ -844,7 +878,10 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Решения для производственных компаний</h1>
+                <h1>Решения для</h1>
+                <div class="hero-animated-title">
+                    <span class="animated-text" id="animatedText">производственных цехов</span>
+                </div>
                 <p class="hero-subtitle">Системное управление производством, планированием, учётом и процессами от заказа до отгрузки</p>
                 
                 <div class="hero-badges">
@@ -863,7 +900,7 @@
         </div>
     </section>
 
-    <section style="background: var(--bg-secondary);">
+    <section id="who" style="background: var(--bg-secondary);">
         <div class="container">
             <h2 class="section-title">Кому подходит</h2>
             <div class="grid-3">
@@ -911,7 +948,7 @@
         </div>
     </section>
 
-    <section>
+    <section id="problems">
         <div class="container">
             <h2 class="section-title">Проблемы, которые решаем</h2>
             <div class="grid-3">
@@ -1203,6 +1240,30 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Анимация смены текста
+            const productionTypes = [
+                'производственных цехов',
+                'металлообработки',
+                'деревообработки и мебели',
+                'производства оборудования',
+                'строительных производств',
+                'пищевого производства'
+            ];
+            
+            let currentIndex = 0;
+            const animatedText = document.getElementById('animatedText');
+            
+            function changeText() {
+                animatedText.style.animation = 'none';
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % productionTypes.length;
+                    animatedText.textContent = productionTypes[currentIndex];
+                    animatedText.style.animation = 'fadeInOut 3s ease-in-out';
+                }, 50);
+            }
+            
+            setInterval(changeText, 3000);
+
             const themeSwitch = document.getElementById('themeSwitch');
             const body = document.body;
             const icon = themeSwitch.querySelector('.icon');
