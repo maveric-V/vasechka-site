@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Решения для застройщиков и девелоперов | Вектор Васечка</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
+    
+    <meta name="description" content="Помогаем застройщикам выстроить прозрачную и управляемую модель продаж, стройки, клиентского пути и цифровой архитектуры. Контроль стройки, CRM, управление подрядчиками.">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00C2A8;
+            --primary-light: #00E5C0;
+            --bg-primary: #ffffff;
+            --bg-secondary: #E6FAF7;
+            --bg-tertiary: #CCF5EE;
+            --text-primary: #002B29;
+            --text-secondary: #4a5c5a;
+            --border-color: #CCF5EE;
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        body.dark-theme {
+            --bg-primary: #002B29;
+            --bg-secondary: #003d3a;
+            --bg-tertiary: #004d48;
+            --text-primary: #ffffff;
+            --text-secondary: #CCF5EE;
+            --border-color: rgba(0, 194, 168, 0.2);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.2;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #00C2A8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo-triangle {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 26px solid #00C2A8;
+            transform: rotate(3.8deg);
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .hero-content {
+            max-width: 100%;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .animated-text {
+            color: var(--primary-color);
+            display: inline-block;
+            min-width: 450px;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            10% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            90% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 24px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .badge-icon {
+            font-size: 24px;
+        }
+
+        .badge-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Who Section */
+        .who-section {
+            padding: 100px 0;
+            background: var(--bg-primary);
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .who-card {
+            padding: 30px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .who-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .who-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .who-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Problems Section */
+        .problems-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .problem-card {
+            padding: 32px;
+            background: var(--bg-primary);
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .problem-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .problem-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 100px 0;
+            background: var(--bg-primary);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            padding: 32px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .product-number {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .product-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Cases Section */
+        .cases-section {
+            padding: 100px 0;
+            background: var(--bg-secondary);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .case-card {
+            padding: 40px;
+            background: var(--bg-primary);
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .case-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+
+        .case-company {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .case-industry {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .case-year {
+            font-size: 14px;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .case-challenge {
+            margin-bottom: 20px;
+        }
+
+        .case-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .case-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background: var(--bg-primary);
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .faq-icon {
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .cta-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 48px;
+            background: white;
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-primary);
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 32px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .modal-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 14px;
+            }
+
+            .who-grid, .problems-grid, .products-grid, .cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .animated-text {
+                min-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <div class="logo-triangle"></div>
+                <span>Вектор Васечка</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#who">Для кого</a></li>
+                    <li><a href="#problems">Задачи</a></li>
+                    <li><a href="#products">Продукты</a></li>
+                    <li><a href="#cases">Кейсы</a></li>
+                    <li><a href="#faq">Вопросы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Решения для <span class="animated-text" id="animatedText">девелоперов жилья</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Управление стройкой, продажами, клиентским путем и цифровой архитектурой
+                </p>
+                <div class="hero-badges">
+                    <div class="badge">
+                        <span class="badge-icon">🏗️</span>
+                        <span class="badge-text">13 лет опыта</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">📊</span>
+                        <span class="badge-text">Экспертиза в девелопменте</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Section -->
+    <section class="who-section" id="who">
+        <div class="container">
+            <h2 class="section-title">Кому подходит</h2>
+            <div class="who-grid">
+                <div class="who-card">
+                    <div class="who-icon">🏢</div>
+                    <div class="who-title">Девелоперы жилья</div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🏬</div>
+                    <div class="who-title">Коммерческие девелоперы</div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🏡</div>
+                    <div class="who-title">Малоэтажные поселки</div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🏗️</div>
+                    <div class="who-title">Средние застройщики</div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🏛️</div>
+                    <div class="who-title">Крупные застройщики</div>
+                </div>
+                <div class="who-card">
+                    <div class="who-icon">🌐</div>
+                    <div class="who-title">Федеральные девелоперы</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems-section" id="problems">
+        <div class="container">
+            <h2 class="section-title">Проблемы, которые решаем</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-title">🏗️ Хаос в стройке</div>
+                    <div class="problem-description">
+                        Нет прозрачности хода строительства, статусы объектов неизвестны, сроки срываются
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-title">👷 Слабый контроль подрядчиков</div>
+                    <div class="problem-description">
+                        Подрядчики работают без контроля, нарушают сроки, нет системы приемки работ
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-title">⏰ Ошибки и задержки</div>
+                    <div class="problem-description">
+                        Постоянные срывы сроков передачи квартир, ошибки в документах, жалобы клиентов
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-title">💼 Нет сквозной CRM</div>
+                    <div class="problem-description">
+                        Потеря лидов, нет контроля продаж, разрозненные данные о клиентах и сделках
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-title">📞 Слабая клиентская коммуникация</div>
+                    <div class="problem-description">
+                        Клиенты не в курсе статуса стройки, нет системы уведомлений, много вопросов в поддержку
+                    </div>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-title">📊 Низкая прозрачность</div>
+                    <div class="problem-description">
+                        Невозможно оценить реальные сроки, нет аналитики по объектам, решения на интуиции
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Продукты и решения</h2>
+            <div class="products-grid">
+                <div class="product-card" data-product="audit">
+                    <div class="product-number">1</div>
+                    <div class="product-title">Audit AS-IS</div>
+                    <div class="product-description">
+                        Глубокий аудит девелоперской операционной модели: процессы стройки, продажи, работа с подрядчиками, клиентский путь
+                    </div>
+                </div>
+                <div class="product-card" data-product="diagnostics">
+                    <div class="product-number">2</div>
+                    <div class="product-title">Диагностика «Вектор»</div>
+                    <div class="product-description">
+                        Комплексная диагностика стройки, продаж и сервиса: узкие места, риски, возможности оптимизации
+                    </div>
+                </div>
+                <div class="product-card" data-product="customer-journey">
+                    <div class="product-number">3</div>
+                    <div class="product-title">Customer Journey девелопера</div>
+                    <div class="product-description">
+                        Проектирование клиентского пути: от первого интереса до передачи ключей и постпродажного сервиса
+                    </div>
+                </div>
+                <div class="product-card" data-product="process-architecture">
+                    <div class="product-number">4</div>
+                    <div class="product-title">Архитектура девелоперских процессов</div>
+                    <div class="product-description">
+                        Описание AS-IS и TO-BE модели: стройка, продажи, сервис, документооборот, передача объектов
+                    </div>
+                </div>
+                <div class="product-card" data-product="systems">
+                    <div class="product-number">5</div>
+                    <div class="product-title">CRM/ERP/BI внедрение</div>
+                    <div class="product-description">
+                        Интеграция систем для девелоперов: CRM для продаж, ERP для стройки, BI для аналитики объектов
+                    </div>
+                </div>
+                <div class="product-card" data-product="contractors">
+                    <div class="product-number">6</div>
+                    <div class="product-title">Управление подрядчиками</div>
+                    <div class="product-description">
+                        Система контроля подрядчиков: стандарты работы, приемка этапов, контроль сроков и качества
+                    </div>
+                </div>
+                <div class="product-card" data-product="digital-construction">
+                    <div class="product-number">7</div>
+                    <div class="product-title">Цифровая стройка</div>
+                    <div class="product-description">
+                        Платформа для контроля строительства: статусы объектов в реальном времени, дашборды, уведомления
+                    </div>
+                </div>
+                <div class="product-card" data-product="tom">
+                    <div class="product-number">8</div>
+                    <div class="product-title">Target Operating Model</div>
+                    <div class="product-description">
+                        Целевая операционная модель для масштабирования девелоперского бизнеса с процессами и системами
+                    </div>
+                </div>
+                <div class="product-card" data-product="support">
+                    <div class="product-number">9</div>
+                    <div class="product-title">Support & Evolution</div>
+                    <div class="product-description">
+                        Постоянная поддержка систем, оптимизация процессов, развитие платформы управления стройкой
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="cases-section" id="cases">
+        <div class="container">
+            <h2 class="section-title">Кейсы</h2>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <div class="case-company">Средний застройщик</div>
+                            <div class="case-industry">3 объекта одновременно</div>
+                        </div>
+                        <div class="case-year">2023</div>
+                    </div>
+                    <div class="case-challenge">
+                        <div class="case-label">Задача</div>
+                        <div class="case-text">
+                            Хаос в контроле стройки, подрядчики срывают сроки, клиенты недовольны отсутствием информации. Нет единой системы.
+                        </div>
+                    </div>
+                    <div class="case-challenge">
+                        <div class="case-label">Решение</div>
+                        <div class="case-text">
+                            Внедрили платформу цифровой стройки с контролем подрядчиков, создали Customer Journey с автоматическими уведомлениями, интегрировали CRM и ERP.
+                        </div>
+                    </div>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-value">-40%</div>
+                            <div class="result-label">задержки сроков</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">-65%</div>
+                            <div class="result-label">жалоб клиентов</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">100%</div>
+                            <div class="result-label">прозрачность</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <div class="case-company">Коттеджный поселок</div>
+                            <div class="case-industry">Малоэтажное строительство</div>
+                        </div>
+                        <div class="case-year">2024</div>
+                    </div>
+                    <div class="case-challenge">
+                        <div class="case-label">Задача</div>
+                        <div class="case-text">
+                            120 домов в стройке, каждый со своими сроками. Покупатели постоянно звонят узнать статус, нет системы коммуникаций.
+                        </div>
+                    </div>
+                    <div class="case-challenge">
+                        <div class="case-label">Решение</div>
+                        <div class="case-text">
+                            Разработали клиентский портал с отслеживанием стройки в реальном времени, создали систему уведомлений на ключевых этапах, автоматизировали отчеты.
+                        </div>
+                    </div>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-value">-70%</div>
+                            <div class="result-label">звонков в поддержку</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">+45%</div>
+                            <div class="result-label">NPS клиентов</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">+30%</div>
+                            <div class="result-label">скорость передачи</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <div class="case-company">Крупный девелопер</div>
+                            <div class="case-industry">Федеральная сеть · 15 городов</div>
+                        </div>
+                        <div class="case-year">2023</div>
+                    </div>
+                    <div class="case-challenge">
+                        <div class="case-label">Задача</div>
+                        <div class="case-text">
+                            Разрозненные процессы в регионах, каждый офис работает по-своему, нет единой аналитики по портфелю объектов.
+                        </div>
+                    </div>
+                    <div class="case-challenge">
+                        <div class="case-label">Решение</div>
+                        <div class="case-text">
+                            Создали Target Operating Model для всей сети, стандартизировали процессы стройки и продаж, внедрили единую платформу управления портфелем.
+                        </div>
+                    </div>
+                    <div class="case-results">
+                        <div class="result-item">
+                            <div class="result-value">100%</div>
+                            <div class="result-label">единая модель</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">+35%</div>
+                            <div class="result-label">эффективность</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-value">-50%</div>
+                            <div class="result-label">время на отчеты</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как организовать прозрачный контроль стройки?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Создаём платформу цифровой стройки: каждый объект разбивается на этапы, назначаются ответственные, устанавливаются контрольные точки. Подрядчики отмечают завершение этапов, загружают фото, система автоматически обновляет статусы. Руководство видит всю картину в реальном времени.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как контролировать работу подрядчиков?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Разрабатываем стандарты работы подрядчиков, создаём систему приемки этапов с чек-листами, внедряем контроль сроков с автоматическими уведомлениями о задержках. Подрядчики получают доступ к платформе, где фиксируют прогресс, а вы контролируете качество.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какую CRM выбрать для девелопера?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Для девелоперов подходят специализированные CRM (Salesforce + надстройки, Bitrix24 с кастомизацией) или отраслевые решения. Важна интеграция с системой стройки, возможность привязки клиента к объекту, автоматизация документооборота. Помогаем с выбором и внедрением под специфику.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как уменьшить количество жалоб клиентов?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Проектируем Customer Journey с проактивными коммуникациями: клиенты получают автоматические уведомления на каждом этапе стройки, видят статус в личном кабинете, получают напоминания о ключевых датах. Прозрачность снижает тревожность и количество обращений в поддержку на 60-70%.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как автоматизировать передачу ключей?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Создаём систему управления передачей: автоматическое формирование документов, бронирование слотов для осмотра, чек-листы приемки, фиксация дефектов с фото. Клиент получает уведомления, записывается на удобное время, проходит осмотр по стандарту. Время передачи сокращается в 2-3 раза.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какие метрики важно отслеживать в девелопменте?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Ключевые метрики: процент выполнения графика стройки, отклонение от сроков по объектам, количество просрочек подрядчиков, конверсия продаж по объектам, NPS клиентов, количество дефектов при передаче. Создаём BI-дашборды с этими показателями для оперативного управления.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Подходят ли ваши решения для малоэтажного строительства?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Да, работаем с коттеджными поселками и таунхаусами. Специфика малоэтажки — большое количество объектов с индивидуальными сроками. Создаём систему параллельного контроля строительства с детализацией по каждому дому, автоматизируем коммуникации с покупателями.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько стоят ваши услуги?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Стоимость зависит от масштаба. Аудит — от 200 000 ₽, разработка Customer Journey — от 300 000 ₽, внедрение платформы цифровой стройки с CRM/ERP — от 1 500 000 ₽. Запишитесь на консультацию для точной оценки вашего проекта.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Готовы выстроить прозрачную модель управления стройкой?</h2>
+            <p class="cta-subtitle">Запишитесь на консультацию и получите анализ вашей операционной модели</p>
+            <a href="#" class="cta-button">Записаться на консультацию</a>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <p class="modal-text" id="modalText"></p>
+        </div>
+    </div>
+
+    <script>
+        // Animated text in hero
+        const types = [
+            'девелоперов жилья',
+            'коммерческих девелоперов',
+            'малоэтажных поселков',
+            'средних застройщиков',
+            'крупных застройщиков',
+            'федеральных девелоперов'
+        ];
+        
+        let currentIndex = 0;
+        const animatedText = document.getElementById('animatedText');
+        
+        function changeText() {
+            animatedText.style.animation = 'none';
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % types.length;
+                animatedText.textContent = types[currentIndex];
+                animatedText.style.animation = 'fadeInOut 3s ease-in-out';
+            }, 50);
+        }
+        
+        setInterval(changeText, 3000);
+
+        // Product modal
+        const productDetails = {
+            'audit': 'Проводим глубокий аудит девелоперской операционной модели: анализируем процессы строительства и контроля подрядчиков, продажи и работу с клиентами, документооборот и передачу объектов. Выявляем узкие места, риски срыва сроков, неэффективные процессы. Результат — детальный отчёт с планом оптимизации.',
+            'diagnostics': 'Комплексная диагностика по методологии «Вектор»: оцениваем зрелость процессов стройки, эффективность продаж, качество клиентского сервиса. Анализируем работу с подрядчиками, систему контроля, коммуникации. Результат — приоритизированный план улучшений с быстрыми победами.',
+            'customer-journey': 'Проектируем полный путь клиента-покупателя недвижимости: от первого интереса до передачи ключей и постпродажного сервиса. Определяем точки контакта, автоматизируем коммуникации, создаём систему уведомлений на каждом этапе стройки. Результат — довольные клиенты без жалоб.',
+            'process-architecture': 'Описываем полную архитектуру девелоперских процессов: модель AS-IS (как работает сейчас) и TO-BE (как должно быть). Детализируем процессы стройки, продаж, сервиса, документооборота, передачи объектов. Результат — единая операционная модель для масштабирования.',
+            'systems': 'Внедряем интегрированные системы для девелоперов: CRM для управления продажами и клиентами, ERP для контроля стройки и подрядчиков, BI для аналитики портфеля объектов. Создаём единую цифровую среду с прозрачностью по всем процессам.',
+            'contractors': 'Создаём систему управления подрядчиками: разрабатываем стандарты работы, чек-листы приемки этапов, систему контроля сроков и качества. Подрядчики работают через платформу, где фиксируют прогресс с фото. Автоматические уведомления о задержках, контроль выполнения.',
+            'digital-construction': 'Внедряем платформу цифровой стройки: каждый объект разбит на этапы с ответственными и дедлайнами, статусы обновляются в реальном времени, руководство видит всю картину на дашбордах. Интеграция с CRM и ERP для полной прозрачности от продажи до передачи.',
+            'tom': 'Разрабатываем целевую операционную модель (Target Operating Model) для девелопера: проектируем процессы, роли, KPI, IT-архитектуру. Создаём стандарты для масштабирования на новые объекты и регионы. Roadmap трансформации с приоритетами и сроками.',
+            'support': 'Постоянная поддержка девелоперских систем: оптимизация процессов стройки, развитие платформы управления, обучение команд, решение операционных задач. Гарантируем, что системы продолжают работать эффективно и адаптируются под новые объекты.'
+        };
+
+        const productCards = document.querySelectorAll('.product-card');
+        const modal = document.getElementById('productModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const productKey = card.dataset.product;
+                const productTitle = card.querySelector('.product-title').textContent;
+                
+                modalTitle.textContent = productTitle;
+                modalText.textContent = productDetails[productKey];
+                modal.classList.add('active');
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // FAQ toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
