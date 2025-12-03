@@ -1,0 +1,15 @@
+{
+  "name": "Вектор Васечка",
+  "short_name": "Vasechka",
+  "description": "Вертикально интегрированная компания по цифровой трансформации бизнеса",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#2F8F8E",
+  "background_color": "#0D0F12",
+  "display": "standalone"
+}

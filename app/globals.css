@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme colors */
+    --background: 245 247 248; /* #F5F7F8 */
+    --foreground: 30 36 40; /* #1E2428 */
+    --card: 255 255 255; /* #FFFFFF */
+    --border: 224 229 232; /* #E0E5E8 */
+    --primary: 47 143 142; /* #2F8F8E */
+    --primary-hover: 122 203 191; /* #7ACBBF */
+    --secondary-text: 89 96 102; /* #596066 */
+    --light-bg: 245 247 248; /* #F5F7F8 */
+    --light-text: 235 239 242; /* #EBEFF2 */
+    --dark-bg: 13 15 18; /* #0D0F12 */
+  }
+
+  .dark {
+    /* Dark theme colors */
+    --background: 13 15 18; /* #0D0F12 */
+    --foreground: 235 239 242; /* #EBEFF2 */
+    --card: 22 26 31; /* #161A1F */
+    --border: 47 143 142 / 0.2; /* #2F8F8E20 */
+    --primary: 47 143 142; /* #2F8F8E */
+    --primary-hover: 122 203 191; /* #7ACBBF */
+    --secondary-text: 167 176 183; /* #A7B0B7 */
+    --light-bg: 245 247 248; /* #F5F7F8 */
+    --light-text: 235 239 242; /* #EBEFF2 */
+    --dark-bg: 13 15 18; /* #0D0F12 */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
